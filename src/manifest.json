@@ -1,0 +1,6 @@
+{
+  "short_name": "AngularChatNotifications",
+  "name": "CometChat + Angular + Notifications App",
+  "start_url": "/",
+  "gcm_sender_id": "103953800507"
+}

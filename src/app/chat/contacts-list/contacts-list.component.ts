@@ -3,7 +3,7 @@ import {
   OnInit,
   OnDestroy,
   Output,
-  EventEmitter
+  EventEmitter,
 } from '@angular/core';
 
 import { ContactsService } from './contacts.service';
@@ -14,12 +14,12 @@ const listenerId = 'ContactsListListner';
 @Component({
   selector: 'app-contacts-list',
   templateUrl: './contacts-list.component.html',
-  styleUrls: ['./contacts-list.component.scss']
+  styleUrls: ['./contacts-list.component.scss'],
 })
 export class ContactsListComponent implements OnInit, OnDestroy {
-  @Output() userSelected = new EventEmitter<CometChat.User>();
+  @Output() userSelected = new EventEmitter<CometChat.UserObj>();
 
-  activeUser: CometChat.User;
+  activeUser: CometChat.UserObj;
 
   constructor(readonly contactsService: ContactsService) {}
 
@@ -43,7 +43,7 @@ export class ContactsListComponent implements OnInit, OnDestroy {
     this.contactsService.destroy(listenerId);
   }
 
-  onUserSelected(user: CometChat.User) {
+  onUserSelected(user: CometChat.UserObj) {
     this.activeUser = user;
     this.userSelected.emit(user);
   }

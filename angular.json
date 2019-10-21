@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular1On1Chat": {
+    "AngularPushNotifications": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,13 +13,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular1On1Chat",
+            "outputPath": "dist/AngularPushNotifications",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": false,
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/firebase-messaging-sw.js",
+              "src/manifest.json"
+            ],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
@@ -53,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Angular1On1Chat:build"
+            "browserTarget": "AngularPushNotifications:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Angular1On1Chat:build:production"
+              "browserTarget": "AngularPushNotifications:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular1On1Chat:build"
+            "browserTarget": "AngularPushNotifications:build"
           }
         },
         "test": {
@@ -94,18 +99,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Angular1On1Chat:serve"
+            "devServerTarget": "AngularPushNotifications:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Angular1On1Chat:serve:production"
+              "devServerTarget": "AngularPushNotifications:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Angular1On1Chat",
+  "defaultProject": "AngularPushNotifications",
   "schematics": {
     "@schematics/angular:component": {
       "styleext": "scss"
